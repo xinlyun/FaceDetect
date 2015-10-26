@@ -1,11 +1,11 @@
 package com.lin.facedetection;
 
 /*
- * TutorialOnFaceDetect1
+ * FaceDActivity
  * 
- * [AUTHOR]: Chunyen Liu
- * [SDK   ]: Android SDK 2.1 and up
- * [NOTE  ]: developer.com tutorial, "Face Detection with Android APIs"
+ * [AUTHOR]: zixin.lin
+ * [SDK   ]: Android SDK 4.0 and up
+ * 
  */
 
 import android.app.Activity;

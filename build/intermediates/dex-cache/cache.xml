@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/xinlyun/git_workspace/FaceDetect/app/build/intermediates/exploded-aar/FaceDetect.libraries/opencv/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2a409f07836cc97f25f76998776f733478c32011">
+        <dex dex="/home/xinlyun/git_workspace/FaceDetect/app/build/intermediates/pre-dexed/debug/classes-674e6342f60ca94288e7536c0c51c8e15bc0079f.jar" />
+    </item>
+
+</items>

@@ -7,14 +7,17 @@ package com.lin.facedetection;
  */
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.media.FaceDetector;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 
 public class MainActivity extends Activity {
@@ -40,10 +43,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         mIV = new MyImageView(this);
-        setContentView(mIV, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+        setContentView(mIV, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
 
         // load the photo
-        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.face3);
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.face5);
+        Matrix matrix = new Matrix();
+        matrix.setScale(800f/b.getWidth(),800f/b.getWidth());
+        b = Bitmap.createBitmap(b,0,0,b.getWidth(),b.getHeight(),matrix,false);
         mFaceBitmap = b.copy(Bitmap.Config.RGB_565, true);
         b.recycle();
 
@@ -51,6 +57,12 @@ public class MainActivity extends Activity {
         mFaceHeight = mFaceBitmap.getHeight();
         mIV.setImageBitmap(mFaceBitmap);
         mIV.invalidate();
+        mIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,FaceDActivity.class));
+            }
+        });
 
         // perform face detection in setFace() in a background thread
         doLengthyCalc();

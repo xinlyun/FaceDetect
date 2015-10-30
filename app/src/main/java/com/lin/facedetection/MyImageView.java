@@ -24,7 +24,7 @@ class MyImageView extends ImageView {
     private int mDisplayStyle = 0;
     private int [] mPX = null;
     private int [] mPY = null;
-
+    private int [] length = null;
     public MyImageView(Context c) {
         super(c);
         init();
@@ -82,6 +82,11 @@ class MyImageView extends ImageView {
 
     // set up detected face features for display
     public void setDisplayPoints(int [] xx, int [] yy, int total, int style) {
+        setDisplayPoints(xx,yy,total,style,null);
+    }
+
+    public void setDisplayPoints(int [] xx,int [] yy, int total,int style,int[] length){
+        this.length = length;
         mDisplayStyle = style;
         mPX = null;
         mPY = null;
@@ -109,7 +114,10 @@ class MyImageView extends ImageView {
                     if (mDisplayStyle == 1) {
                         canvas.drawCircle(mPX[i], mPY[i], 10.0f, mPaint);
                     } else {
-                        canvas.drawRect(mPX[i] - 20,  mPY[i] - 20, mPX[i] + 20,  mPY[i] + 20, mPaint);
+                        if(length==null)
+                            canvas.drawRect(mPX[i] - 20,  mPY[i] - 20, mPX[i] + 20,  mPY[i] + 20, mPaint);
+                        else
+                            canvas.drawRect(mPX[i] - length[i],  mPY[i] - length[i], mPX[i] + length[i],  mPY[i] + length[i]*2, mPaint);
                     }
                 }
             }

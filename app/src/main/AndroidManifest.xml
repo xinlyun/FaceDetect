@@ -7,9 +7,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         >
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
+        <activity android:name=".GrayActivity"
+            android:label="GrayActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +16,13 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".FaceDActivity"
+        <activity
+            android:name=".FaceDActivity"
+            android:label="@string/app_name" >
+
+        </activity>
+
+        <activity android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
